@@ -1,0 +1,14 @@
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP:Header>
+        <header xmlns="xmlapi_1.0">
+            <security>
+                <user>{{config.username}}</user>
+                <password>{{config.password}}</password>
+            </security>
+            <requestID>clientName@requestId@clientIP</requestID>
+        </header>
+    </SOAP:Header>
+    <SOAP:Body>
+    {% block request %}{% endblock %}
+    </SOAP:Body>
+</SOAP:Envelope>

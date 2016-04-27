@@ -1,0 +1,23 @@
+{% extends "envelope.j2" %}
+
+{% block request %}
+        <find xmlns="xmlapi_1.0">
+            <fullClassName>{{ config.class_name }}</fullClassName>
+            {% if config.filter is defined %}
+            <filter class="{{ config.class_name }}">
+                <equal name="{{config.filter[0]}}" value="{{config.filter[1]}}"/>
+            </filter>
+            {% endif %}
+            <resultFilter>
+                {% for attr in config.result_attributes %}
+                <attribute>{{ attr }}</attribute>
+                {% endfor %}
+                {% if config.children is defined %}
+                <children/>
+                {% else %}
+                <children></children>
+                {% endif %}
+            </resultFilter>
+        </find>
+{% endblock %}
+
