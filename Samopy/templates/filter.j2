@@ -1,0 +1,17 @@
+{%- if class is defined %}
+<filter class="{{class}}">
+{%- else %}
+<filter>
+{%- endif %}
+{%- for i in filter %}
+{%- if i['operator'] == 'simple' %}
+{%- if i['line']['type'] =='between' %}
+<{{i['line']['type']}} name="{{i['line']['name']}}" first="{{i['line']['first']}}" second="{{i['line']['second']}}" />
+{%- else %}
+<{{i['line']['type']}} name="{{i['line']['name']}}" value="{{i['line']['value']}}" />
+{%- endif %}
+{%- else %}
+<{{i['operator']}}>
+{%- endif %}
+{%- endfor %}
+</filter>

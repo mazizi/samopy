@@ -2,13 +2,13 @@
     <SOAP:Header>
         <header xmlns="xmlapi_1.0">
             <security>
-                <user>{{config.username}}</user>
-                <password>{{config.password}}</password>
+                <user>{{ management.username }}</user>
+                <password>{{ management.password }}</password>
             </security>
-            <requestID>clientName@requestId@clientIP</requestID>
+            <requestID>{{ management.username }}@{{ range(0,65535) | random }}</requestID>
         </header>
     </SOAP:Header>
     <SOAP:Body>
-    {% block request %}{% endblock %}
+    {%- block request %}{% endblock %}
     </SOAP:Body>
 </SOAP:Envelope>

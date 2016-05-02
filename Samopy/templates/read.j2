@@ -1,0 +1,13 @@
+{% extends "envelope.j2" %}
+
+{%- block request %}
+        <find xmlns="xmlapi_1.0">
+            <fullClassName>{{ config.class_name }}</fullClassName>
+            {%- if config.filter != False %}
+            {{config.filter}}
+            {%- endif %}
+            {%- if config.result_filter != None %}
+            {{config.result_filter}}
+            {%- endif %}
+        </find>
+{%- endblock %}

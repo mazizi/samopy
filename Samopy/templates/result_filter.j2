@@ -1,0 +1,12 @@
+{%- if result_attr != None %}
+<resultFilter>
+    {%- for attr in result_attr %}
+    <attribute>{{ attr }}</attribute>
+    {%- endfor %}
+    {%- if children is not defined %}
+    <children/>
+    {%- else %}
+    <children></children>
+    {%- endif %}
+</resultFilter>
+{%- endif %}
