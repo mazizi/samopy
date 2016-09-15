@@ -108,4 +108,4 @@ class SAMOpy(object):
         return self.read(var)
 
     def cli_ping(self, src_addr, dst_addr):
-        return cli(src_addr, "ping {}".format(dst_addr))
+        return cli(src_addr, "ping {}".format(str(dst_addr)))
