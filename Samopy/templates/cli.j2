@@ -1,0 +1,8 @@
+{% extends "envelope.j2" %}
+
+{%- block request %}
+        <netw.NetworkElement.executeMultiCli xmlns="xmlapi_1.0">
+            <instanceFullName>network:{{ip_addr}}</instanceFullName>
+            <command>{{command}}</command>
+        </netw.NetworkElement.executeMultiCli>
+{%- endblock %}
